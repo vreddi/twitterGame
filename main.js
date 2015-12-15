@@ -22,6 +22,7 @@ $(document).ready(function() {
 
     $(".flipCard").flip();
 
+    var rollingAnimationFlag = true;
     function animateStatistics() {
         $('.statsColumn.column-1').animate({left: 0}, 700);
         $('.statsColumn.column-3').animate({right: 0}, 700);
@@ -31,7 +32,10 @@ $(document).ready(function() {
         */
         var values = [1000, 6000, 115];
         var statTime = 1500;
-        rollingNumbers(values, statTime)
+        if (rollingAnimationFlag) {
+            rollingNumbers(values, statTime);
+            rollingAnimationFlag = false;
+        };
     }
 
     function rollingNumbers(valueArray, time) {
